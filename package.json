@@ -1,0 +1,30 @@
+{
+  "name": "yoow-ecommerce",
+  "version": "1.0.0",
+  "description": "YOOW - Echoes of the Hills E-commerce Platform",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "vite",
+    "server": "nodemon server/index.js",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
+    "axios": "^1.6.0",
+    "stripe": "^14.10.0",
+    "@stripe/stripe-js": "^2.2.0",
+    "lucide-react": "^0.294.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^8.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.1.1",
+    "vite": "^5.0.0",
+    "tailwindcss": "^3.3.6"
+  }
+}
