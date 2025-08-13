@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOOW - Echoes of the Hills</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1a2a6c;
-            --secondary: #b21f1f;
-            --accent: #ffd700;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YOOW - Echoes of the Hills</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a2a6c;
+      --secondary: #b21f1f;
+      --accent: #ffd700;
+    }
+    body { margin:0; font-family: Poppins, system-ui, sans-serif; }
+    header { color:#fff; background:#1a2a6c; padding:16px; text-align:center; }
+  </style>
 </head>
 <body>
-    <div id="root"></div>
-    <script type="module" src="./src/main.jsx"></script>
-</body><body>
-  <!-- Add these lines ABOVE the root div -->
-  <h1 style="color:white;background:#1a2a6c;padding:20px;text-align:center">
-    YOOW - Echoes of the Hills
-  </h1>
-  <p style="text-align:center">Site is loading...</p>
-  
+  <header>YOOW - Echoes of the Hills</header>
   <div id="root"></div>
-  <script type="module" src="./src/main.jsx"></script>
+
+  <!-- Keep this for dev; Vite will replace it with the built bundle on deploy -->
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
