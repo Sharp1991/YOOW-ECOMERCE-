@@ -1,0 +1,40 @@
+name: Deploy Vite site to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]  # Runs when you push to main branch
+  workflow_dispatch:      # Allows manual run from Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci          # Install dependencies
+      - run: npm run build   # Build the Vite site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist       # Upload the built site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
