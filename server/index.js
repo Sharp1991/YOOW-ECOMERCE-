@@ -1,26 +1,23 @@
 const express = require('express');
-const path = require('path');
 const cors = require('cors');
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
-// Middleware
+// Sample products
+const products = [
+  {id: 1, name: "Naga Shawl", price: 2499, image: "https://picsum.photos/300/400"},
+  {id: 2, name: "Mizo Dress", price: 3599, image: "https://picsum.photos/300/400"}
+];
+
+// Enable CORS
 app.use(cors());
-app.use(express.json());
 
-// API endpoints
+// API endpoint
 app.get('/api/products', (req, res) => {
-  res.json(require('./products.json')); // Create products.json
+  res.json(products);
 });
 
-// Serve React build in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../build')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
-  });
-}
-
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
